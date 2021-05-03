@@ -52,7 +52,6 @@ def link_download_file():
     midia = request.args.get('midia')
     nome_midia = request.args.get('nome_midia')
     if (url_tube != 'None') & (url_tube != None):
-        print('@@@@@@', url_tube)
         yt = YouTube(url_tube)
         nome_midia = formata_nome_arquivo(nome_midia)
 
@@ -78,4 +77,5 @@ def link_download_file():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
