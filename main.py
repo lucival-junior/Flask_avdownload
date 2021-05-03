@@ -54,21 +54,22 @@ def link_download_file():
     if (url_tube != 'None') & (url_tube != None):
         print('@@@@@@', url_tube)
         yt = YouTube(url_tube)
-        nome_arquivo = yt.title
-        nome_arquivo_formatado = formata_nome_arquivo(nome_arquivo)
+        nome_midia = formata_nome_arquivo(nome_midia)
 
         if (nome_midia != '') & (midia != None):
             nome_midia = formata_nome_arquivo(nome_midia)
+            nome_midia = nome_midia.replace(',', '')
+            nome_midia = nome_midia.replace('.', '')
             if midia == 'audio':
                 filtro_audio = yt.streams.filter(only_audio=True, mime_type='audio/mp4')
-                filtro_audio.first().download(output_path='file_temp_audio/', filename=nome_arquivo_formatado)
-                path_mp4 = 'file_temp_audio/' + nome_arquivo_formatado + '.mp4'
-                path_mp3 = 'file_temp_audio/' + nome_arquivo_formatado + '.mp3'
+                filtro_audio.first().download(output_path='file_temp_audio/', filename=nome_midia)
+                path_mp4 = 'file_temp_audio/' + nome_midia + '.mp4'
+                path_mp3 = 'file_temp_audio/' + nome_midia + '.mp3'
                 os.rename(path_mp4, path_mp3)
                 return send_file('file_temp_audio\\' + nome_midia + '.mp3', as_attachment=True)
             else:
                 filtro_video = yt.streams.filter(progressive=True, file_extension='mp4')
-                filtro_video.first().download(output_path='file_temp_video/', filename=nome_arquivo_formatado)
+                filtro_video.first().download(output_path='file_temp_video/', filename=nome_midia)
                 return send_file('file_temp_video\\' + nome_midia + '.mp4', as_attachment=True)
         else:
             return render_template('index.html')
