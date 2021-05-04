@@ -65,11 +65,11 @@ def link_download_file():
                 path_mp4 = 'file_temp_audio/' + nome_midia + '.mp4'
                 path_mp3 = 'file_temp_audio/' + nome_midia + '.mp3'
                 os.rename(path_mp4, path_mp3)
-                return send_file('file_temp_audio\\' + nome_midia + '.mp3', as_attachment=True)
+                return send_file('file_temp_audio/' + nome_midia + '.mp3', as_attachment=True)
             else:
                 filtro_video = yt.streams.filter(progressive=True, file_extension='mp4')
                 filtro_video.first().download(output_path='file_temp_video/', filename=nome_midia)
-                return send_file('file_temp_video\\' + nome_midia + '.mp4', as_attachment=True)
+                return send_file('file_temp_video/' + nome_midia + '.mp4', as_attachment=True)
         else:
             return render_template('index.html')
     else:
