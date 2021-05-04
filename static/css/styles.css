@@ -10007,8 +10007,8 @@ h3 {
   }
 }
 .features-icons {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
 }
 .features-icons .features-icons-item {
   max-width: 20rem;
@@ -10028,8 +10028,8 @@ header.masthead {
   background-color: #343a40;
   background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
   background-size: cover;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 header.masthead .overlay {
   position: absolute;
@@ -10045,8 +10045,8 @@ header.masthead h1 {
 }
 @media (min-width: 768px) {
   header.masthead {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
   header.masthead h1 {
     font-size: 3rem;
@@ -10097,6 +10097,6 @@ header.masthead h1 {
 }
 
 footer.footer {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }

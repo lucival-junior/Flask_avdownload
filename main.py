@@ -10,7 +10,7 @@ app = Flask(__name__)
 url_tube = ''
 
 
-def formata_nome_arquivo (nome_arquivo)-> str:
+def formata_nome_arquivo(nome_arquivo) -> str:
     nome_arquivo = normalize('NFKD', nome_arquivo).encode('ASCII', 'ignore').decode('ASCII')
     return nome_arquivo
 
@@ -27,6 +27,7 @@ def av_download():
         return render_template('index.html',  audio_donwload=nome_arquivo, video_donwload=nome_arquivo)
     else:
         return render_template('index.html', audio_donwload=nome_arquivo, video_donwload=nome_arquivo)
+
 
 def download(url_tube):
     if url_tube != None:
@@ -77,6 +78,10 @@ def link_download_file():
 
 
 if __name__ == '__main__':
+    # Para testes locais
+    # app.run(debug=True)
+
+    # Para producao com debug ativado para monitoramento
     app.debug = True
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
